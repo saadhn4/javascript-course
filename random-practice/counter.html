@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter</title>
+  </head>
+  <body style="background-color: black">
+    <button
+      onclick="
+      console.log(`Count's current value is: ${count}`)
+      "
+    >
+      Show Count
+    </button>
+    <button
+      onclick="
+    count++;
+    console.log(`Count: ${count}`)
+
+    "
+    >
+      +1
+    </button>
+    <button
+      onclick="
+    count+=3
+    console.log(`Count: ${count}`)
+    "
+    >
+      +3
+    </button>
+
+    <button
+      onclick="
+    count --
+    console.log(`Count: ${count}`);
+    "
+    >
+      -1
+    </button>
+    <script>
+      let count = 0;
+    </script>
+  </body>
+</html>
