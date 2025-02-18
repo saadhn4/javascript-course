@@ -4,9 +4,46 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Counter</title>
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      button {
+        border: none;
+        padding: 8px 16px;
+        border-radius: 6px;
+        margin-right: 10px;
+        color: white;
+        font-weight: bold;
+      }
+
+      .show-count {
+        background-color: #fd7e14;
+      }
+
+      .one {
+        background-color: #06c167;
+      }
+
+      .three {
+        background-color: #ffc107;
+      }
+
+      .negative {
+        background-color: #dc3545;
+      }
+
+      .reset {
+        background-color: brown;
+      }
+    </style>
   </head>
-  <body style="background-color: black">
+  <body>
     <button
+      class="show-count"
       onclick="
       console.log(`Count's current value is: ${count}`)
       "
@@ -14,6 +51,7 @@
       Show Count
     </button>
     <button
+      class="one"
       onclick="
     count++;
     console.log(`Count: ${count}`)
@@ -23,6 +61,7 @@
       +1
     </button>
     <button
+      class="three"
       onclick="
     count+=3
     console.log(`Count: ${count}`)
@@ -32,12 +71,24 @@
     </button>
 
     <button
+      class="negative"
       onclick="
     count --
     console.log(`Count: ${count}`);
     "
     >
       -1
+    </button>
+
+    <button
+      class="reset"
+      onclick="
+      console.log('Counter Reset.')
+      count = 0;
+      console.log(`Count: ${count}`);
+    "
+    >
+      Reset
     </button>
     <script>
       let count = 0;
