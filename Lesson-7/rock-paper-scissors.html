@@ -9,14 +9,15 @@
     <p>Rock Paper Scissors</p>
     <button
       onclick="
-    playGame('rock')
+      playGame('rock')
     "
     >
       Rock
     </button>
     <button
       onclick="
-      playGame('paper')
+    playGame('paper')
+   
    "
     >
       Paper
@@ -24,19 +25,19 @@
 
     <button
       onclick="
-    playGame('scissors')
+      playGame('scissors')
     "
     >
       Scissors
     </button>
     <script>
       function playGame(playerMove) {
-        let computerMove = pickComputerMove();
+        const computerMove = pickComputerMove();
         let result = "";
         if (playerMove === "scissors") {
           if (computerMove === "rock") {
             result = "You lose.";
-          } else if ((computerMove = "paper")) {
+          } else if (computerMove === "paper") {
             result = "You win.";
           } else {
             result = "Draw.";

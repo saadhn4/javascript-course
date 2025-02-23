@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7g</title>
+  </head>
+  <body>
+    <script>
+      function convertToKilometers(miles) {
+        return miles * 1.6;
+      }
+
+      function convertToMiles(kilometers) {
+        return kilometers / 1.6;
+      }
+
+      function convertToFeet(number, unit) {
+        if (unit === "miles") {
+          return number * 5280;
+        } else if (unit === "kilometers") {
+          return number * 3281;
+        }
+      }
+
+      function convertLength(length, from, to) {
+        if (from !== "km" && from !== "miles" && from !== "ft") {
+          return `Invalid unit: ${from}`;
+        } else if (to !== "km" && to !== "miles" && to !== "ft") {
+          return `Invalid unit: ${to}`;
+        }
+
+        if (from === "miles" && to === "kilometers") {
+          let km = convertToKilometers(length);
+          console.log(`${km}KM`);
+        } else if (from === "kilometers" && to === "miles") {
+          let m = convertToMiles(length);
+          console.log(`${m} miles`);
+        } else if (
+          (from === "kilometers" || from === "miles") &&
+          to === "feet"
+        ) {
+          let feet = convertToFeet(length, from);
+          console.log(`${feet}ft`);
+        }
+      }
+
+      convertLength(1, "miles", "kilometers");
+      convertLength(1.6, "kilometers", "miles");
+      convertLength(1, "kilometers", "lbs");
+      console.log(convertLength(5, "lbs", "lbs"));
+    </script>
+  </body>
+</html>
