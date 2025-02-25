@@ -22,7 +22,7 @@
     delete product.newProperty;
     console.log(product);
     */
-
+    /*
     const product2 = {
       name: "shirt",
       "delivery-time": "1 day",
@@ -45,5 +45,54 @@
     console.log(JSON.stringify(product2));
     const jsonString = JSON.stringify(product2);
     console.log(JSON.parse(jsonString));
+    */
+
+    console.log("hello".length);
+    console.log("hello".toUpperCase());
+
+    const object1 = {
+      message: "hello",
+    };
+    //here were actually not copying object1 into object2
+    const object2 = object1;
+    //how did a const variable get updated?? object1 just contains a reference to the actual object
+    object1.message = "good job!";
+    console.log(object1);
+    console.log(object2); //also has good job msg
+
+    const object3 = {
+      message: "good job!",
+    };
+
+    console.log(object1 === object3); //false, objects r references. Object 3 is a different reference compared to object1
+    console.log(object2 === object1); //true, object2 has the same reference as object1.. Points to the same object in the computers memory
+    //working with objects, youre comparing the reference. not the values inside
+
+    const object4 = {
+      message: "good job!",
+      price: 799,
+    };
+    //const message = object4.message;
+    //here the variable and the property name are the same, so we have a shortcut
+    //destructuring
+    const { message, price } = object4;
+    console.log(message);
+    console.log(price);
+
+    const object5 = {
+      // message: message,
+      message,
+      //both the property and variable name r same so shortcut
+      // method: function function1() {
+      //   console.log("method");
+      // },
+      //shortcut
+      method() {
+        console.log("method");
+      },
+    };
+
+    console.log(object5); //message: good job!
+    object5.method();
   </script>
 </html>
