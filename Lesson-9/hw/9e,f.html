@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9e</title>
+  </head>
+  <body>
+    <input class="name" placeholder="Name" onkeydown="enter(event)" />
+    <button onclick="displayName()">Submit</button>
+    <p class="pTag"></p>
+    <script>
+      function displayName() {
+        let inputName = document.querySelector(".name");
+        let name = inputName.value;
+        let pTag = document.querySelector(".pTag");
+        pTag.innerHTML = `Your name is: ${name}`;
+      }
+
+      function enter(event) {
+        if (event.key === "Enter") {
+          displayName();
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9c</title>
+  </head>
+  <body>
+    <button onclick="displayInP('heads')">Heads</button>
+    <button onclick="displayInP('tails')">Tails</button>
+    <p></p>
+    <script>
+      function displayInP(choice) {
+        let pTag = document.querySelector("p");
+        if (choice === "heads") {
+          pTag.innerHTML = `You chose: ${choice}`;
+        } else if (choice === "tails") {
+          pTag.innerHTML = `You chose: ${choice}`;
+        }
+      }
+    </script>
+  </body>
+</html>

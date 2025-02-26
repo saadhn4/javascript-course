@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9h</title>
+  </head>
+  <body>
+    <input
+      class="input-field"
+      onkeyup="
+      pElement.innerHTML= inputField.value
+      "
+    />
+    <p class="js-text"></p>
+    <script>
+      let inputField = document.querySelector(".input-field");
+      let pElement = document.querySelector(".js-text");
+    </script>
+  </body>
+</html>

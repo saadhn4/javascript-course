@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9g</title>
+  </head>
+  <body>
+    <input
+      class="js-cost-input"
+      placeholder="Cost of order"
+      onkeydown="
+      handleCostKeydown(event)
+      "
+    />
+    <button onclick="calculateTotal()">Calculate</button>
+    <p class="js-result"></p>
+
+    <script>
+      function handleCostKeydown(event) {
+        if (event.key === "Enter") {
+          calculateTotal();
+        }
+      }
+
+      function calculateTotal() {
+        const inputElement = document.querySelector(".js-cost-input");
+
+        let cost = Number(inputElement.value);
+
+        if (cost < 40) {
+          cost += 10;
+        }
+        document.querySelector(".js-result").innerHTML = `$${cost.toFixed(2)}`;
+      }
+      //why doesnt this work when i do 7.99?
+
+      //The issue happens because of floating-point precision errors in JavaScript. When you enter 7.99, the condition if (cost < 40) is true, so 10 is added to 7.99, which should result in 17.99. However, due to how JavaScript handles floating-point arithmetic, it might produce something like 17.990000000000002.
+
+      //Use .toFixed(2) to ensure the result is rounded to two decimal places:
+    </script>
+  </body>
+</html>

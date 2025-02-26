@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9d</title>
+  </head>
+  <body>
+    <input class="name" placeholder="Name" />
+    <button onclick="displayName()">Submit</button>
+    <p class="pTag"></p>
+    <script>
+      function displayName() {
+        let inputName = document.querySelector(".name");
+        let name = inputName.value;
+        let pTag = document.querySelector(".pTag");
+        pTag.innerHTML = `Your name is: ${name}`;
+      }
+    </script>
+  </body>
+</html>
