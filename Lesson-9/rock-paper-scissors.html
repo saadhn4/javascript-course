@@ -46,14 +46,10 @@
         return computerMove;
       }
 
-      function updateScore() {
-        let jsScore = document.querySelector(".js-score");
-        jsScore.innerHTML = `Wins: ${score.wins} Losses: ${score.losses} Ties: ${score.ties}`;
-      }
-
       function playGame(playerMove) {
         let computerMove = generateComputerMove();
         let result = "";
+
         if (playerMove === "rock") {
           if (computerMove === "rock") {
             result = "Tie";
@@ -79,10 +75,13 @@
             result = "Tie";
           }
         }
+
         document.querySelector(
           ".js-moves"
         ).innerHTML = `You ${playerMove} - Computer ${computerMove}`;
+
         document.querySelector(".js-result").innerHTML = `${result}`;
+
         if (result === "You win") {
           score.wins++;
         } else if (result === "You lose") {
@@ -90,11 +89,15 @@
         } else {
           score.ties++;
         }
+
         localStorage.setItem("score", JSON.stringify(score));
+
         updateScore();
-        // alert(
-        //   `You picked: ${playerMove}. Computer picked: ${computerMove}. Result: ${result}\nWins: ${score.wins} Losses: ${score.losses} Ties: ${score.ties}`
-        // );
+      }
+
+      function updateScore() {
+        let jsScore = document.querySelector(".js-score");
+        jsScore.innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
       }
     </script>
   </body>
