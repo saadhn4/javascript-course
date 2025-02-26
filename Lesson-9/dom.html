@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+  </head>
+  <body>
+    <button>Hello</button>
+    <button class="js-btn">Second button</button>
+    <script>
+      console.log(document.querySelector("button").innerHTML);
+      // querySelector only gets the first button
+      document.querySelector("button").innerHTML = "Changed";
+      const buttonElement = document.querySelector(".js-btn");
+      console.log(buttonElement);
+
+      /*
+      console.log(document.title);
+      document.title = "Changed";
+      console.log(document.body);
+      console.log(typeof document.body); //an html element becomes a JS object in DOM
+      console.log(document.body.innerHTML);
+      document.body.innerHTML = "<button>Good job!</button>";
+      */
+
+      /*
+      document.body.innerHTML = "hello";
+      document.title = "Good job!";
+      */
+    </script>
+  </body>
+</html>

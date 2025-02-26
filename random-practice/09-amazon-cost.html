@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input
+      class="js-input"
+      placeholder="Enter cost"
+      onkeydown="pressingEnterKey(event)"
+    />
+    <button onclick="calculateTotal()">Calculate</button>
+    <p class="pCost"></p>
+    <script>
+      function calculateTotal() {
+        let input = document.querySelector(".js-input");
+        let cost = Number(input.value);
+        if (cost < 40) {
+          cost += 10;
+        }
+        let pCost = document.querySelector(".pCost");
+        pCost.innerHTML = `$${cost}`;
+      }
+
+      function pressingEnterKey(event) {
+        if (event.key === "Enter") {
+          calculateTotal();
+        }
+      }
+    </script>
+  </body>
+</html>
