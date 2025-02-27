@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .error-text {
+        color: red;
+      }
+
+      .input-field {
+        padding: 10px;
+        font-size: 15px;
+      }
+
+      .btn {
+        padding: 13px 15px;
+        background-color: green;
+        border: none;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <input class="js-input input-field" placeholder="Enter cost" />
+    <button class="js-calculate btn" onclick="calculateCost()">
+      Calculate
+    </button>
+    <p class="js-cost-result"></p>
+    <p class="js-error error-text"></p>
+    <script>
+      function calculateCost() {
+        let inputElement = document.querySelector(".js-input");
+        let cost = Number(inputElement.value);
+        document.querySelector(".js-cost-result").innerHTML = "";
+        document.querySelector(".js-error").innerHTML = "";
+        if (cost < 0) {
+          document.querySelector(".js-error").innerHTML =
+            "Error: cost cannot be less than $0";
+          return;
+        }
+        if (cost < 40) {
+          document.querySelector(".js-cost-result").innerHTML = `$${(cost =
+            cost + 10)}`;
+        } else {
+          document.querySelector(".js-cost-result").innerHTML = `$${cost}`;
+        }
+      }
+    </script>
+  </body>
+</html>
