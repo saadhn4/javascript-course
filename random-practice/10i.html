@@ -81,6 +81,7 @@
     </button>
     <script>
       let calculation = localStorage.getItem("calculation") || "";
+      document.querySelector(".js-display").innerHTML = calculation;
       function updateCalculation(value) {
         calculation += value;
         // console.log(calculation);
