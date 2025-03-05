@@ -1,9 +1,9 @@
-const todoList = ["make dinner", "wash dishes"];
+const todoList = [];
 
 renderToDoList();
 
 function renderToDoList() {
-  let todoListHTML = [];
+  let todoListHTML = "";
 
   for (let i = 0; i < todoList.length; i++) {
     const todo = todoList[i];
