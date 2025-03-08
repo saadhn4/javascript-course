@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>To-do List</p>
+    <input type="text" placeholder="Enter task" class="task-input" />
+    <input type="date" class="date-input" />
+    <button onclick="addTask()">Add</button>
+    <p class="js-task"></p>
+    <script>
+      let todoList = [];
+
+      renderTodo();
+      function renderTodo() {
+        let todoListHTML = "";
+        for (let i = 0; i < todoList.length; i++) {
+          let taskObject = todoList[i];
+          const { task, date } = taskObject;
+          let html = `<p>${task} ${date} <button onclick="
+            todoList.splice(${i},1)
+            renderTodo();
+            ">Delete</button></p>`;
+          todoListHTML += html;
+        }
+        document.querySelector(".js-task").innerHTML = todoListHTML;
+      }
+      function addTask() {
+        let inputElement = document.querySelector(".task-input");
+        let dateElement = document.querySelector(".date-input");
+
+        let date = dateElement.value;
+        let task = inputElement.value;
+
+        todoList.push({ task, date });
+        inputElement.value = "";
+        console.log(todoList);
+        renderTodo();
+      }
+    </script>
+  </body>
+</html>
