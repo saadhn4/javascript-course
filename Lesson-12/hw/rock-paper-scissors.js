@@ -22,6 +22,16 @@ function generateComputerMove() {
 let isAutoPlaying = false;
 let intervalID;
 
+document.querySelector(".js-auto-play-btn").addEventListener("click", () => {
+  autoplay();
+});
+
+document.body.addEventListener("keydown", (e) => {
+  if (e.key === "a") {
+    autoplay();
+  }
+});
+
 function autoplay() {
   if (!isAutoPlaying) {
     intervalID = setInterval(() => {
@@ -29,9 +39,11 @@ function autoplay() {
       playGame(playerMove);
     }, 1000);
     isAutoPlaying = true;
+    document.querySelector(".js-auto-play-btn").innerHTML = "Stop Playing";
   } else {
     clearInterval(intervalID);
     isAutoPlaying = false;
+    document.querySelector(".js-auto-play-btn").innerHTML = "Auto Play";
   }
 }
 
@@ -111,3 +123,21 @@ function updateScore() {
   let jsScore = document.querySelector(".js-score");
   jsScore.innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
 }
+
+function resetScore() {
+  score.wins = 0;
+  score.losses = 0;
+  score.ties = 0;
+  updateScore();
+  localStorage.setItem("score", JSON.stringify(score));
+}
+
+document.querySelector(".js-reset-score").addEventListener("click", () => {
+  resetScore();
+});
+
+document.body.addEventListener("keydown", (e) => {
+  if (e.key === "Backspace") {
+    resetScore();
+  }
+});
